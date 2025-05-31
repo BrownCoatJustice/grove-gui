@@ -1,2 +1,5 @@
 
 nbactions.xml
+/target/
+
+src/test/java/Test.fxml

@@ -8,19 +8,27 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import java.util.logging.Logger;
+import java.util.logging.ConsoleHandler;
+import java.util.logging.Level;
+
 /**
- * JavaFX App
+ * @author Habis Muhammed
  */
 public class App extends Application {
 
-    private static Scene scene;
+    public final String appName = "grove";
+    public static final Logger logger = Logger.getLogger(App.class.getName());
 
     @Override
-    public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 640, 480);
-        stage.setScene(scene);
-        stage.show();
+    public void start(Stage primaryStg) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
+        primaryStg.setTitle(appName);
+        primaryStg.setScene(new Scene(root));
+        primaryStg.show();
     }
 
-
+    public static void main(String[] args) {
+        launch(args);
+    }
 }
